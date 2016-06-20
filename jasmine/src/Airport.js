@@ -11,3 +11,10 @@ Airport.prototype.planes = function(){
 Airport.prototype.clearForLanding = function(plane) {
   this._hangar.push(plane);
 };
+
+Airport.prototype.clearForTakeOff = function(plane) {
+  var planeIndex = this._hangar.indexOf(plane);
+  if (planeIndex > -1) {
+    this._hangar.splice(planeIndex, 1);
+  }
+};
