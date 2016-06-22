@@ -19,4 +19,10 @@ describe('Airport', function(){
     airport.clearForTakeOff(plane);
     expect(airport.planes()).toEqual([]);
   });
+
+  it('does not permit take off in stormy weather', function(){
+    airport.clearForLanding(plane);
+    expect(function(){airport.clearForTakeOff(plane);}).toThrowError('Cannot take off during storm');
+  });
+
 });

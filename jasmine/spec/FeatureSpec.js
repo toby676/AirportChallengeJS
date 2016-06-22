@@ -20,4 +20,10 @@ describe('Feature Test:', function() {
     expect(airport.planes()).not.toContain(plane);
   })
 
+  it('prevents take off when weather is stormy', function() {
+    plane.land(airport);
+    expect(function() {plane.takeOff();}).toThrowError('Cannot take off during storm');
+    expect(airport.planes()).toContain(plane);
+  });
+
 })
